@@ -34,6 +34,15 @@ function range(min, max) {
     return array;
 }
 
+function divisors(num) {
+    function isDivisible(current) {
+        return (current % num === 0);
+    }
+    let nums = range(1, 100).filter(isDivisible);
+    return nums;
+}
+console.log(divisors(7));
+
 // 3. Boost
 console.log('Boost:')
 
@@ -79,3 +88,49 @@ function multiples(one, two) {
 }
 
 console.log(multiples(5, 7));
+
+// 5. Part two
+
+console.log('Part two:');
+
+
+
+
+
+
+
+//--------------------------------------
+console.log('1/5 Practice Problem:');
+let people = [
+    { first: 'Jeb', last: 'Walters', age: 48 },
+    { first: 'Katy', last: 'Jeeters', age: 58 },
+    { first: 'Finster', last: 'O Hannigan', age: 18 },
+];
+
+function allowed(folks, minimum) {
+    function oldEnough(folk) {
+        if (folk.age > minimum) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function makeName(person) {
+        return person.first + ' ' + person.last;
+    }
+
+    let keepers = folks.filter(oldEnough).map(makeName);
+    return keepers;
+}
+
+
+
+// function allowed(folks, minimum) {
+//     return folks.filter(function (folk) {
+//         return folk.age > minimum;
+//     }).map(function (person) {
+//         return person.first + ' ' + person.last;
+//     });
+//     let keepers = folks.filter(oldEnough).map(makeName);
+//         return keepers;
+// }
